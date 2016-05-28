@@ -7,14 +7,13 @@ Example
 Let's say you have the following properties defined in my_file.properties file
 
 
-foo = I am awesome
-bar = ${chocolate}-bar
-chocolate = fudge
+foo = I am awesome  
+bar = ${chocolate}-bar  
+chocolate = fudge  
 
+Code to load the above properties  
 
-Code to load the above properties
-
-prop = Property()
-prop.load('path/to/my_file.properties')
-prop.get('foo')  # I am awesome
-prop.get('bar')  # fudge-bar
+prop = Property()  
+prop.load('path/to/my_file.properties')  
+prop.get('foo')  # I am awesome  
+prop.get('bar')  # fudge-bar  
