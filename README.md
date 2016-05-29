@@ -13,7 +13,9 @@ chocolate = fudge
 
 Code to load the above properties  
 
-prop = Property()  
+from properties import p
+
+prop = p.Property()  
 prop.load('path/to/my_file.properties')  
 prop.get('foo')  # I am awesome  
 prop.get('bar')  # fudge-bar  
