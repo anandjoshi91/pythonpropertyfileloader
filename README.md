@@ -22,7 +22,7 @@ prop = p.Property()
 prop.load('path/to/my_file.properties')  
 prop.get('foo')  # I am awesome  
 prop.get('bar')  # fudge-bar
-prop.get('long')  # a very long property that is described in the property file which takes up multiple lines can be defined by the escape character as it is done here
+prop.get('long')  # a very long property that is described in the property file which takes up multiple lines can be defined by the escape character as it is done here  
 prop.get('unknown')   # None
 
 Use showall() to get the key value pair of all the properties defined in the file(s)
