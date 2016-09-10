@@ -19,8 +19,8 @@ Code to load the above properties
 from properties import p
 
 prop = p.Property()  
-prop.load('path/to/my_file.properties')  
-prop.get('foo')  # I am awesome  
+prop.load('path/to/my_file.properties')
+prop.get('foo')  # I am awesome
 prop.get('bar')  # fudge-bar
 prop.get('long')  # a very long property that is described in the property file which takes up multiple lines can be defined by the escape character as it is done here
 prop.get('unknown')   # None
@@ -31,4 +31,4 @@ print(prop.showall()) # {'long': 'a very long property that is described in the 
 
 To load multiple property files use
 
-prop.load('path/to/first_file','path/to/second_file',....'path/to/nth_file')
+prop.load('path/to/first_file','path/to/second_file',....,'path/to/nth_file')
