@@ -1,10 +1,1 @@
-1) Copy the properties folder in your path/topython/dir/Python34/Lib
-2) Open a new terminal
-3) Simply import the module and start using it.
-
-from properties import p
-
-prop = p.Property()
-prop.load('my_file.properties')
-print(prop.get('foo')) 
-print(prop.get('bar'))
+pip install property
