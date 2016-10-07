@@ -1,6 +1,6 @@
 {
   "name": "Pythonpropertyfileloader",
   "tagline": "A python module to load  property files. Similar to the Properties class in Java.",
-  "body": "# pythonpropertyfileloader\r\n### A python module to load  property files.\r\n Actually it is like the PropertyPlaceholderConfigurer in spring which lets you use ${variable-reference} to refer to already defined property ).\r\n\r\n\r\nInstall\r\n----------\r\n\r\n```pip install property```\r\n\r\n\r\n\r\nDocumentation\r\n-----------------\r\n\r\nhttp://pythonhosted.org/property/",
+  "body": "# pythonpropertyfileloader\r\n### A python module to load  property files.\r\n Actually it is like the PropertyPlaceholderConfigurer in spring which lets you use ${variable-reference} to refer to already defined property ).\r\n\r\n\r\nInstall\r\n----------\r\n\r\n```pip install property```\r\n\r\n\r\n\r\nExample\r\n---------\r\n\r\n```python\r\nfrom properties.p import Property\r\n\r\nprop = Property()\r\ndic_prop = prop.load_property_files('my_file.properties')\r\n\r\n\r\nprint(dic_prop)\r\n\r\n```\r\n",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }

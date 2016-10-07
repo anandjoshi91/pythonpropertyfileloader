@@ -33,9 +33,16 @@
 <p><code>pip install property</code></p>
 
 <h2>
-<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Documentation</h2>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h2>
 
-<p><a href="http://pythonhosted.org/property/">http://pythonhosted.org/property/</a></p>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> properties.p <span class="pl-k">import</span> Property
+
+prop <span class="pl-k">=</span> Property()
+dic_prop <span class="pl-k">=</span> prop.load_property_files(<span class="pl-s"><span class="pl-pds">'</span>my_file.properties<span class="pl-pds">'</span></span>)
+
+
+<span class="pl-c1">print</span>(dic_prop)
+</pre></div>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/anandjoshi91/pythonpropertyfileloader">Pythonpropertyfileloader</a> is maintained by <a href="https://github.com/anandjoshi91">anandjoshi91</a>.</span>
