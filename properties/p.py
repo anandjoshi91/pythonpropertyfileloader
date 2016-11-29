@@ -79,7 +79,7 @@ class Property:
         else:
             val = key
 
-        evalset = set(re.findall(r'(?<={)[^}]*(?=})', val))
+        evalset = set(re.findall(r'(?<=${)[^}]*(?=})', val))
 
         try:
             # If the set is empty. This is the final value. return it
