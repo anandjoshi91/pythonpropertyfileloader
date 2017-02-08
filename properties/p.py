@@ -55,9 +55,9 @@ class Property:
                                     if len(line) > 0:
                                         line += l
                                         l = line.strip()
-                                    key_value = l.split(self.__assign_token)
-                                    key = key_value[0].strip()
-                                    value = key_value[1].strip()
+                                    index_of_separator = l.find('=')
+                                    key = l[:index_of_separator].strip()
+                                    value = l[index_of_separator+1:].strip()
 
                                     if key not in self.__props.keys():
                                         self.__props[key] = value
