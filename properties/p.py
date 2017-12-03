@@ -1,4 +1,5 @@
 import re
+from collections import OrderedDict
 
 
 class Property:
@@ -7,15 +8,17 @@ class Property:
         Allows cross referencing of variables
     """
 
-    def __init__(self, assign_token='=', comment_token='#', line_append_token='\\'):
+    def __init__(self, assign_token: str = '=', comment_token: str = '#', line_append_token: str = '\\',
+                 ordered: bool =True):
         """ optional parameters
             A standard property file follows the convention
             =  is used to assign a variable or property
             # for comments in the property file
             \ a long variable definition can span across multiple lines. Use \ to continue to next line
             override them if your property file uses different convention
+            True is ordered
         """
-        self.__props = {}
+        self.__props = OrderedDict() if ordered else dict()
         self.__assign_token = assign_token
         self.__comment_token = comment_token
         self.__line_append_token = line_append_token
