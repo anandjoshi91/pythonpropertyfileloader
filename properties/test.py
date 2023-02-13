@@ -18,12 +18,6 @@ dic_prop = prop.load_property_files(testfile)
 print(dic_prop)
 
 if mis := prop.get_missing_values() :
-    print("The following unknown keys where detected while finding substitutions:")
+    print("The following unknown keys where detected while resolving substitutions:")
     for k in mis.keys() :
         print(k)
-
-# Output
-
-# {'foo': 'I am awesome', 'bar': 'fudge-bar', 'chocolate': 'fudge',
-#  'long': 'a very long property that is described in the property file which takes up multiple lines can be defined by the escape character as it is done here',
-#  'url': 'example.com/api?auth_token=xyz'}
