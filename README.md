@@ -61,9 +61,9 @@ print(dic_prop)
 
 Use test.py and check the different outputs
 
-`python3 properties/test.py env`
+`python properties/test.py env`
 
 vs.
 
-`python3 properties/test.py noenv`
+`python properties/test.py noenv`
 
