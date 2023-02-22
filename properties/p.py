@@ -1,4 +1,5 @@
 import re
+import os
 from collections import OrderedDict
 
 
@@ -9,7 +10,7 @@ class Property:
     """
 
     def __init__(self, assign_token: str = '=', comment_token: str = '#', line_append_token: str = '\\',
-                 ordered: bool =True):
+            ordered: bool = True, use_env: bool = False ):
         """ optional parameters
             A standard property file follows the convention
             =  is used to assign a variable or property
@@ -17,11 +18,14 @@ class Property:
             \ a long variable definition can span across multiple lines. Use \ to continue to next line
             override them if your property file uses different convention
             True is ordered
+            optionally resolve values from env variables (false by default)
         """
         self.__props = OrderedDict() if ordered else dict()
         self.__assign_token = assign_token
         self.__comment_token = comment_token
         self.__line_append_token = line_append_token
+        self.__use_env = use_env
+        self.__missing = None
 
     def load_property_files(self, *argv):
         """
@@ -30,10 +34,15 @@ class Property:
         """
         self.__read_property_files(*argv)
 
+        # reset missing keys
+        self.__missing = dict()
         for key in self.__props.keys():
             self.__props[key] = self.__evaluate_properties(key)
 
         return self.__props
+
+    def get_missing_values(self):
+        return self.__missing
 
     def __read_property_files(self, *argv):
         """ Reads one or more property files
@@ -85,15 +94,18 @@ class Property:
         evalset = set(re.findall(r'(?<=\${)[^}]*(?=})', val))
 
         try:
-            # If the set is empty. This is the final value. return it
-            if not evalset:
-                return val
-            else:
                 for token in evalset:
                     replace_this = '${' + token + '}'
-                    replace_with = self.__props[token]
-                    val = val.replace(replace_this, replace_with)
-                    return self.__evaluate_properties(val)
+                    replace_with = replace_this
+                    if token in self.__props.keys():
+                        replace_with = self.__props[token]
+                    elif self.__use_env :
+                        replace_with = os.getenv(token, replace_this)
+                    if replace_with != replace_this:
+                        val = self.__evaluate_properties(val.replace(replace_this, replace_with))
+                    else:
+                        self.__missing[token] = 1
         except Exception as error:
             raise ValueError('Please check property files. Some property might not be defined. Check ', token, ' ',
                              error)
+        return val

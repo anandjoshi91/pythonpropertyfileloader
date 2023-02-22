@@ -1,7 +1,8 @@
 # pythonpropertyfileloader
-### A python module to load  property files.
+### A python module to load property files.
  Actually it is like the PropertyPlaceholderConfigurer in spring which lets you use ${variable-reference} to refer to already defined property ).
 
+ Placeholders are also resolved using env variables, like the spring property loader does, if the class is instantiated with the 'use_env' argument (defaults to false for backward compatibility)
 
 Install
 ----------
@@ -55,3 +56,14 @@ print(dic_prop)
 # {'bar': 'fudge-bar', 'chocolate': 'fudge', 'url': 'example.com/api?auth_token=xyz', 'foo': 'I am awesome',
 # 'long': 'a very long property that is described in the property file which takes up multiple lines can be defined by the escape character as it is done here'}
 ```
+
+## env variables
+
+Use test.py and check the different outputs
+
+`python properties/test.py env`
+
+vs.
+
+`python properties/test.py noenv`
+
