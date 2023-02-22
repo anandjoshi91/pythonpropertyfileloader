@@ -2,7 +2,7 @@
 ### A python module to load property files.
  Actually it is like the PropertyPlaceholderConfigurer in spring which lets you use ${variable-reference} to refer to already defined property ).
 
- Placeholders are also resolved using env variables, like the spring property loader does, if the class is istantiated with the 'use_env' argument (defaults to false for backward compatibility)
+ Placeholders are also resolved using env variables, like the spring property loader does, if the class is instantiated with the 'use_env' argument (defaults to false for backward compatibility)
 
 Install
 ----------
