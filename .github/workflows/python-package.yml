@@ -38,7 +38,7 @@ jobs:
     - name: Test with pytest
       run: |
         coverage run -m pytest
-        coverage report -m > ./pytest-coverage.txt
+        coverage report -m > pytest-coverage.txt
     - name: Pytest coverage comment
       uses: MishaKav/pytest-coverage-comment@main
       with:
