@@ -1,7 +1,8 @@
 # pythonpropertyfileloader
-### A python module to load  property files.
+### A python module to load property files.
  Actually it is like the PropertyPlaceholderConfigurer in spring which lets you use ${variable-reference} to refer to already defined property ).
 
+ Placeholders are also resolved using env variables, like the spring property loader does, if the class is instantiated with the `use_env` argument (defaults to false for backward compatibility)
 
 Install
 ----------
@@ -21,6 +22,9 @@ chocolate = fudge
 long = a very long property that is described in the property file which takes up \
 multiple lines can be defined by the escape character as it is done here
 url=example.com/api?auth_token=xyz
+user_dir=${HOME}/test
+unresolved = ${HOME}/files/${id}/${bar}/
+fname_template = /opt/myapp/{arch}/ext/{objid}.dat
 ```
 
 
@@ -28,7 +32,7 @@ url=example.com/api?auth_token=xyz
 ```python
 from properties.p import Property
 
-prop = Property()
+prop = Property(use_env = True)
 dic_prop = prop.load_property_files('my_file.properties')
 
 
@@ -36,22 +40,5 @@ print(dic_prop)
 
 # Output
 
-# OrderedDict([('foo', 'I am awesome'), ('bar', 'fudge-bar'), ('chocolate', 'fudge'),
-# ('long', 'a very long property that is described in the property file which takes up multiple lines can be defined by the escape character as it is done here'),
-# ('url', 'example.com/api?auth_token=xyz')])
-```
-
-```python
-from properties.p import Property
-
-prop = Property(ordered=False)
-dic_prop = prop.load_property_files('my_file.properties')
-
-
-print(dic_prop)
-
-# Output
-
-# {'bar': 'fudge-bar', 'chocolate': 'fudge', 'url': 'example.com/api?auth_token=xyz', 'foo': 'I am awesome',
-# 'long': 'a very long property that is described in the property file which takes up multiple lines can be defined by the escape character as it is done here'}
+# {'foo': 'I am awesome', 'bar': 'fudge-bar', 'chocolate': 'fudge', 'long': 'a very long property that is described in the property file which takes up multiple lines can be defined by the escape character as it is done here', 'url': 'example.com/api?auth_token=xyz', 'user_dir': '/home/user/test', 'unresolved': '/home/user/files/${id}/fudge-bar/', 'fname_template': '/opt/myapp/{arch}/ext/{objid}.dat'}
 ```
