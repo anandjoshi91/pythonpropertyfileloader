@@ -22,6 +22,9 @@ chocolate = fudge
 long = a very long property that is described in the property file which takes up \
 multiple lines can be defined by the escape character as it is done here
 url=example.com/api?auth_token=xyz
+user_dir=${HOME}/test
+unresolved = ${HOME}/files/${id}/${bar}/
+fname_template = /opt/myapp/{arch}/ext/{objid}.dat
 ```
 
 
@@ -29,7 +32,7 @@ url=example.com/api?auth_token=xyz
 ```python
 from properties.p import Property
 
-prop = Property()
+prop = Property(use_env = True)
 dic_prop = prop.load_property_files('my_file.properties')
 
 

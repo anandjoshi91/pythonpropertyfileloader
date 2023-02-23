@@ -35,7 +35,7 @@ class Property:
         self.__read_property_files(*argv)
 
         # reset missing keys
-        self.__missing = dict()
+        self.__missing = set()
         for key in self.__props.keys():
             self.__props[key] = self.__evaluate_properties(key)
 
@@ -104,7 +104,7 @@ class Property:
                     if replace_with != replace_this:
                         val = self.__evaluate_properties(val.replace(replace_this, replace_with))
                     else:
-                        self.__missing[token] = 1
+                        self.__missing.add(token)
         except Exception as error:
             raise ValueError('Please check property files. Some property might not be defined. Check ', token, ' ',
                              error)
