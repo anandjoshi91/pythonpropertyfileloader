@@ -39,6 +39,7 @@ jobs:
       run: |
         pytest --cov-report=term-missing:skip-covered --cov=properties properties/test/ | tee pytest-coverage.txt
     - name: Pytest coverage comment
+      id: coverageComment
       uses: MishaKav/pytest-coverage-comment@main
       with:
         pytest-coverage-path: ./pytest-coverage.txt
