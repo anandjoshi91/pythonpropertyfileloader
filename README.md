@@ -11,6 +11,8 @@
 
 ## Install
 
+Available on [PyPI](https://pypi.org/project/property/)
+
 ```bash
 pip install property
 ```
