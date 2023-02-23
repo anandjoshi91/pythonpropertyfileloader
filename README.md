@@ -2,6 +2,7 @@
 
 
 ![Build](https://github.com/anandjoshi91/pythonpropertyfileloader/actions/workflows/python-package.yml/badge.svg)
+[![Downloads](https://static.pepy.tech/badge/property)](https://pepy.tech/project/property)
 
 ### A python module to load property files.
  Actually it is like the PropertyPlaceholderConfigurer in spring which lets you use ${variable-reference} to refer to already defined property ).
