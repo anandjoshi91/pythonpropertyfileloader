@@ -6,7 +6,7 @@ this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text()
 
 setup(name='property',
-      version='2.6.1',
+      version='2.6.2',
       packages=['properties'],
       url='https://github.com/anandjoshi91/pythonpropertyfileloader',
       description=""" A python module to load property files. Recursively define properties, load from env.""",
@@ -22,5 +22,5 @@ setup(name='property',
                  "Programming Language :: Python :: 3.8",
                  "Programming Language :: Python :: 3.9",
                  "Programming Language :: Python :: 3.10"],
-      download_url='https://github.com/anandjoshi91/pythonpropertyfileloader/archive/refs/tags/2.6.1.zip'
+      download_url='https://github.com/anandjoshi91/pythonpropertyfileloader/archive/refs/tags/2.6.2.zip'
       )
