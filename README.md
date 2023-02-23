@@ -43,6 +43,9 @@ from properties.p import Property
 prop = Property(use_env = True)
 dic_prop = prop.load_property_files('my_file.properties')
 
+## Read multiple files
+## dic_prop = prop.load_property_files('file1', 'file2')
+
 
 print(dic_prop)
 
@@ -65,12 +68,18 @@ cd pythonpropertyfileloader
 ## make your changes and open a PR - https://github.com/anandjoshi91/pythonpropertyfileloader/pulls
 ## Ensure all tests pass
 
+## Check Dependencies
+pip install pipreqs
+pipreqs .
+
 ## Test
 pip install pytest
 pytest
 
 ## Publish to PyPi
 pip install twine
+
+update setup.py
 python setup.py sdist bdist_wheel
 twine check dist/*
 twine upload dist/*
