@@ -55,3 +55,23 @@ print(dic_prop)
 #  'unresolved': '/home/user/files/${id}/fudge-bar/',
 #  'fname_template': '/opt/myapp/{arch}/ext/{objid}.dat'}
 ```
+
+## Develop
+
+```bash
+git clone https://github.com/anandjoshi91/pythonpropertyfileloader.git
+cd pythonpropertyfileloader
+
+## make your changes and open a PR - https://github.com/anandjoshi91/pythonpropertyfileloader/pulls
+## Ensure all tests pass
+
+## Test
+pip install pytest
+pytest
+
+## Publish to PyPi
+pip install twine
+python setup.py sdist bdist_wheel
+twine check dist/*
+twine upload dist/*
+```
