@@ -10,7 +10,7 @@ class Property:
     """
 
     def __init__(self, assign_token: str = '=', comment_token: str = '#', line_append_token: str = '\\',
-            ordered: bool = True, use_env: bool = False ):
+            ordered: bool = False, use_env: bool = False ):
         """ optional parameters
             A standard property file follows the convention
             =  is used to assign a variable or property
