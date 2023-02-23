@@ -11,14 +11,16 @@ class Property:
 
     def __init__(self, assign_token: str = '=', comment_token: str = '#', line_append_token: str = '\\',
             ordered: bool = False, use_env: bool = False ):
-        """ optional parameters
-            A standard property file follows the convention
-            =  is used to assign a variable or property
-            # for comments in the property file
-            \ a long variable definition can span across multiple lines. Use \ to continue to next line
-            override them if your property file uses different convention
-            True is ordered
-            optionally resolve values from env variables (false by default)
+        """ 
+        Args:
+            assign_token: Assignments operator within your property files. Default (=)
+            comment_token: To ignore comments in property files. Default (#)
+            line_append_token: A long property can span across multiple lines. Uses default \\ ignore line breaks
+            ordered: If you want the properties to be maintained in ordered dictionary. Default (False)
+            use_env: Resolve values from environment variables. Default (False)
+
+        Returns:
+            Property() object with the set configurations
         """
         self.__props = OrderedDict() if ordered else dict()
         self.__assign_token = assign_token
@@ -29,8 +31,15 @@ class Property:
 
     def load_property_files(self, *argv):
         """
-        :param argv: Takes variable length of arguments. Enter the property files to be loaded.
-        :return: Dictionary. Key value pair of properties after their evaluation
+        Args:
+            argv: Takes variable length of arguments. Enter the property files to be loaded.
+            param2: This is a second param.
+
+        Returns:
+            Dictionary. Key value pair of properties after their evaluation
+
+        Raises:
+            Exception: Raises an exception if unable to load the files
         """
         self.__read_property_files(*argv)
 
@@ -67,9 +76,10 @@ class Property:
                                     if len(line) > 0:
                                         line += l
                                         l = line.strip()
-                                    index_of_separator = l.find('=')
+                                    index_of_separator = l.find(self.__assign_token)
+                                    assign_token_size = len(self.__assign_token)
                                     key = l[:index_of_separator].strip()
-                                    value = l[index_of_separator+1:].strip()
+                                    value = l[index_of_separator+assign_token_size:].strip()
 
                                     if key not in self.__props.keys():
                                         self.__props[key] = value
