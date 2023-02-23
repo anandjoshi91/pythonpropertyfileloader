@@ -52,3 +52,9 @@ def test_prop_reader_with_custom_separator():
     prop = Property(assign_token='=>')
     dic_prop = prop.load_property_files(get_test_file('test-files/test3.properties'))
     assert dic_prop.get('foo') == 'bar'
+
+def test_prop_reader_with_no_file():
+    prop = Property()
+    dic_prop = prop.load_property_files()
+    assert dic_prop == {}
+
